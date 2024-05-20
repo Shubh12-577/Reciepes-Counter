@@ -1,0 +1,31 @@
+{
+  "name": "Recipe Counter",
+  "short_name": "Recipe Log",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffe9d2",
+  "theme_color": "#ffe1c4",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/img/icons/icon-16x16.png",
+      "type": "image/png",
+      "sizes": "16x16"
+    },
+    {
+      "src": "/img/icons/icon-32x32.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "/img/icons/icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/img/icons/icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

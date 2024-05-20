@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipes Counter</title>
+    <!-- Materialize icons, css and js -->
+    <link rel="stylesheet" href="/css/materialize.min.css" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css" type="text/css" />
+    <script src="/js/materialize.min.js" type="text/javascript"></script>
+    <link
+      rel="shortcut icon"
+      href="/img/icons/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="manifest" href="/manifest.json" />
+    <!-- ios support -->
+    <link rel="apple-touch-icon" href="/img/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-status-bar" content="#aa7700" />
+    <meta name="theme-color" content="#ffe1c4" />
+  </head>
+  <body class="grey lighten-4">
+    <!-- top navigation bar -->
+    <nav class="z-depth-0">
+      <div class="nav-wrapper container">
+        <a href="/">Recipes<span>Counter</span></a>
+        <span class="right grey-text text-darken-1">
+          <i class="material-icons sidenav-trigger" data-target="side-menu"
+            >menu</i
+          >
+        </span>
+      </div>
+    </nav>
+    <!-- side navigation bar -->
+    <ul id="side-menu" class="sidenav side-menu">
+      <li><a class="subheader">RECIPESCOUNTER</a></li>
+      <li class="logged-out" style="display: none">
+        <a
+          href="#"
+          class="waves-effect modal-trigger"
+          data-target="modal-signup"
+          ><i class="material-icons">person_add</i> Sign up</a
+        >
+      </li>
+
+      <li class="logged-out" style="display: none">
+        <a href="#" class="waves-effect modal-trigger" data-target="modal-login"
+          ><i class="material-icons">person_pin</i> Login</a
+        >
+      </li>
+      <li class="logged-in sidenav-close" style="display: none">
+        <a
+          href="#"
+          class="waves-effect modal-trigger"
+          data-target="modal-account"
+        >
+          <i class="material-icons">account_circle</i> Account Info</a
+        >
+      </li>
+      <li class="logged-in" style="display: none">
+        <div class="divider"></div>
+      </li>
+      <li class="logged-in" style="display: none">
+        <a href="/" class="waves-effect"
+          ><i class="material-icons">home</i> Home</a
+        >
+      </li>
+      <li class="logged-in" style="display: none">
+        <a href="/pages/about.html" class="waves-effect"
+          ><i class="material-icons">info_outline</i> About</a
+        >
+      </li>
+      <li class="logged-in" style="display: none">
+        <a href="/pages/contact.html" class="waves-effect"
+          ><i class="material-icons">mail_outline</i>Contact</a
+        >
+      </li>
+      <li class="logged-in" style="display: none">
+        <div class="divider"></div>
+      </li>
+      <li class="logged-in" style="display: none">
+        <a href="#" class="waves-effect" id="logout"
+          ><i class="material-icons">exit_to_app</i> Logout</a
+        >
+      </li>
+    </ul>
+
+    <!-- SIGN UP MODAL -->
+    <div id="modal-signup" class="modal">
+      <div class="modal-content">
+        <h4>Sign up</h4>
+        <form id="signup-form">
+          <div class="input-field">
+            <input type="email" id="signup-email" required />
+            <label for="signup-email">Email address</label>
+          </div>
+          <div class="input-field">
+            <input type="password" id="signup-password" required />
+            <label for="signup-password">Choose password</label>
+          </div>
+          <div class="input-field">
+            <input type="text" id="signup-bio" required />
+            <label for="signup-bio">One Line Bio</label>
+          </div>
+          <button class="btn orange darken-4 z-depth-0">Sign up</button>
+          <p class="error pink-text center-align"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- LOGIN MODAL -->
+    <div id="modal-login" class="modal">
+      <div class="modal-content">
+        <h4>Login</h4>
+        <form id="login-form">
+          <div class="input-field">
+            <input type="email" id="login-email" required />
+            <label for="login-email">Email address</label>
+          </div>
+          <div class="input-field">
+            <input type="password" id="login-password" required />
+            <label for="login-password">Your password</label>
+          </div>
+          <button class="btn orange darken-4 z-depth-0">Login</button>
+          <p class="error pink-text center-align"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- ACCOUNT MODAL -->
+    <div id="modal-account" class="modal">
+      <div class="modal-content center-align">
+        <h4>Account details</h4>
+        <div class="divider"></div>
+        <br />
+        <div class="account-details"></div>
+      </div>
+    </div>
+    <!-- Entry page -->
+    <div class="signup-page"></div>
+    <!-- Enter Recipe -->
+    <div class="enter-recipe"></div>
+    <!-- recipes -->
+    <div class="recipes container grey-text text-darken-1"></div>
+    <!-- add recipe icon -->
+    <div class="center add-button logged-in" style="display: none">
+      <a
+        href="#"
+        class="btn-floating waves-effect btn-large add-btn modal-trigger"
+        data-target="add-modal"
+      >
+        <i class="material-icons">add</i>
+      </a>
+    </div>
+    <!-- add recipe side nav form -->
+    <div id="add-modal" class="modal add-modal">
+      <form class="add-recipe container section">
+        <h6>New Recipe</h6>
+        <div class="divider"></div>
+        <div class="input-field">
+          <input
+            type="text"
+            name="title"
+            id="title"
+            class="validate"
+            placeholder="e.g. Biryani"
+            required
+          />
+          <label for="title">Recipe Title</label>
+        </div>
+        <div class="input-field">
+          <input
+            type="text"
+            name="ingredients"
+            id="ingredients"
+            class="validate"
+            placeholder="e.g Cooked rice,onions,ginger..."
+            required
+          />
+          <label for="ingredients">Ingredients</label>
+        </div>
+        <div class="input-field center">
+          <button class="btn-small waves-effect modal-close">Add</button>
+          <a href="#!" class="btn-small waves-effect modal-close">Close</a>
+        </div>
+      </form>
+    </div>
+    <!-- update recipe side nav form -->
+    <div id="update-form1" class="modal update-form">
+      <form class="update-recipe container section">
+        <h6>Update Recipe</h6>
+        <div class="divider"></div>
+        <div class="input-field">
+          <input
+            type="text"
+            name="title"
+            id="uptitle"
+            class="validate update-title"
+            placeholder="e.g. Biryani"
+            required
+          />
+          <label for="title">Recipe Title</label>
+        </div>
+        <div class="input-field">
+          <input
+            type="text"
+            name="ingredients"
+            id="upingredients"
+            class="validate update-ingredients"
+            placeholder="e.g Cooked rice,onions,ginger..."
+            required
+          />
+          <label for="ingredients">Ingredients</label>
+        </div>
+        <div class="input-field center">
+          <button class="btn-small waves-effect update-btn modal-close">
+            Update
+          </button>
+          <a href="#!" class="btn-small waves-effect modal-close">Close</a>
+        </div>
+      </form>
+    </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyD9is69YJ5gKZ_qO22_CKIkvVRVuY_DeRA",
+        authDomain: "recipes-counter.firebaseapp.com",
+        projectId: "recipes-counter",
+        storageBucket: "recipes-counter.appspot.com",
+        messagingSenderId: "116178435994",
+        appId: "1:116178435994:web:37b23fcb658d3fd8e18423",
+        measurementId: "G-R93QSLHRV6",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      const db = firebase.firestore();
+      const auth = firebase.auth();
+    </script>
+    <script src="/js/app.js"></script>
+    <script src="/js/ui.js"></script>
+    <script src="/js/db.js"></script>
+  </body>
+</html>

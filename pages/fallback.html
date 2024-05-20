@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipes Counter</title>
+    <!-- Materialize icons, css and js -->
+    <link rel="stylesheet" href="/css/materialize.min.css" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css" type="text/css" />
+    <script src="/js/materialize.min.js" type="text/javascript"></script>
+    <link
+      rel="shortcut icon"
+      href="/img/icons/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="manifest" href="/manifest.json" />
+    <!-- ios support -->
+    <link rel="apple-touch-icon" href="/img/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-status-bar" content="#aa7700" />
+    <meta name="theme-color" content="#ffe1c4" />
+  </head>
+  <body class="grey lighten-4">
+    <!-- top navigation bar -->
+    <nav class="z-depth-0">
+      <div class="nav-wrapper container">
+        <a href="/">Recipes<span>Counter</span></a>
+        <span class="right grey-text text-darken-1">
+          <i class="material-icons sidenav-trigger" data-target="side-menu"
+            >menu</i
+          >
+        </span>
+      </div>
+    </nav>
+    <!-- side navigation bar -->
+    <ul id="side-menu" class="sidenav side-menu">
+      <li><a class="subheader">RECIPESCOUNTER</a></li>
+      <li class="logged-in">
+        <div class="divider"></div>
+      </li>
+      <li class="logged-in">
+        <a href="/" class="waves-effect"
+          ><i class="material-icons">home</i> Home</a
+        >
+      </li>
+      <li class="logged-in">
+        <a href="/pages/about.html" class="waves-effect"
+          ><i class="material-icons">info_outline</i> About</a
+        >
+      </li>
+      <li class="logged-in">
+        <div class="divider"></div>
+      </li>
+      <li class="logged-in">
+        <a href="/pages/contact.html" class="waves-effect"
+          ><i class="material-icons">mail_outline</i>Contact</a
+        >
+      </li>
+    </ul>
+    <!-- Fallback -->
+    <div class="container grey-text center">
+      <h5>OOPS!</h5>
+      <p>Currently you cannot view this page offline.</p>
+      <a href="/" class="btn-small orange">Goto Homepage</a>
+    </div>
+    <script src="/js/app.js"></script>
+    <script src="/js/ui.js"></script>
+  </body>
+</html>
